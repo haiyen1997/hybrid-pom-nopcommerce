@@ -83,7 +83,7 @@ public class Level_01_Register_Login_Repeat_Yourself {
 	public void TC_03_Verify_My_Account() {
 		driver.findElement(By.cssSelector(".ico-account")).click();
 		
-		Assert.assertEquals(driver.findElement(By.cssSelector("h1")).getText(), "My account - Customer info");
+		Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), "My account - Customer info");
 		
 		Assert.assertTrue(driver.findElement(By.id("gender-male")).isSelected());
 		
