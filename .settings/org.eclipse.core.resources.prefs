@@ -4,4 +4,5 @@ encoding//Interfaces/pageUIs/alada/LoginPageUI.java=UTF-8
 encoding//Testcases/com/alada/login/Level_03_Login_Page_Pattern.java=UTF-8
 encoding//Testcases/com/nopcommerce/user/Level_02_Register_Login_BasePage_Part_II.java=UTF-8
 encoding//Testcases/com/nopcommerce/user/Level_02_Register_Login_BasePage_Part_III.java=UTF-8
-encoding//Testcases/com/nopcommerce/user/Level_02_Register_Login_Page_Object_Pattern.java=UTF-8
+encoding//Testcases/com/nopcommerce/user/Level_03_Register_Login_Page_Object_Pattern.java=UTF-8
+encoding//Testcases/com/nopcommerce/user/Level_04_Register_Login_Multiple_Browser.java=UTF-8

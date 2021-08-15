@@ -28,17 +28,17 @@ public class LoginPageObject extends BasePage{
 	}
 
 	public String getErrorMessageAtEmailTextbox() {
-		waitForElementInvisible(driver, LoginPageUI.EMAIL_ERROR_MESSAGE);
+		waitForElementVisible(driver, LoginPageUI.EMAIL_ERROR_MESSAGE);
 		return getElementText(driver, LoginPageUI.EMAIL_ERROR_MESSAGE);
 	}
 
 	public String getErrorMessageAtPasswordTextbox() {
-		waitForElementInvisible(driver, LoginPageUI.PASSWORD_ERROR_MESSAGE);
+		waitForElementVisible(driver, LoginPageUI.PASSWORD_ERROR_MESSAGE);
 		return getElementText(driver, LoginPageUI.PASSWORD_ERROR_MESSAGE);
 	}
 
 	public String getErrorMessageAtLoginForm() {
-		waitForElementInvisible(driver, LoginPageUI.LOGIN_FORM_ERROR_MESSAGE);
+		waitForElementVisible(driver, LoginPageUI.LOGIN_FORM_ERROR_MESSAGE);
 		return getElementText(driver, LoginPageUI.LOGIN_FORM_ERROR_MESSAGE);
 	}
 }

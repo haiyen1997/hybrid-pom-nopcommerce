@@ -14,7 +14,7 @@ public class HomePageObject extends BasePage{
 	}
 
 	public boolean isMyCourseDisplayed() {
-		waitForElementInvisible(driver, HomePageUI.MY_COURSE_LINK);
+		waitForElementVisible(driver, HomePageUI.MY_COURSE_LINK);
 		return isElementDisplayed(driver, HomePageUI.MY_COURSE_LINK);
 	}
 }
