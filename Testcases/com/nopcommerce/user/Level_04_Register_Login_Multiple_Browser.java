@@ -30,8 +30,6 @@ public class Level_04_Register_Login_Multiple_Browser extends BaseTest{
 	@BeforeClass
 	public void beforeClass(String browserName, String url) {		
 		driver = getBrowserDriver(browserName, url);
-		
-		
 		homePage = new HomePageObject(driver);
 		
 		firstName = "Automation";
@@ -41,8 +39,7 @@ public class Level_04_Register_Login_Multiple_Browser extends BaseTest{
 		year="1999";
 		emailAddress="automation"+getRandomNumber()+"@gmail.com";
 		companyName="Automation FC";
-		password="123456";
-				
+		password="123456";		
 	}
 
 	@Test
@@ -95,8 +92,6 @@ public class Level_04_Register_Login_Multiple_Browser extends BaseTest{
 		Assert.assertEquals(myAccountPage.getPageYearDropdownValue(), year);
 	}
 
-
-	
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
