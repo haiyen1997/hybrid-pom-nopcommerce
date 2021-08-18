@@ -9,21 +9,30 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BaseTest {
+	
 	private WebDriver driver;
 	private String projectPath = System.getProperty("user.dir");
 	protected WebDriver getBrowserDriver(String browserName, String url) {
-		if(browserName.equalsIgnoreCase("firefox")) {
+		Browser browser = Browser.valueOf(browserName.toUpperCase());
+		
+		switch (browser) {
+		case FIREFOX:
 			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 			driver = new FirefoxDriver();
-		} else if(browserName.equalsIgnoreCase("chrome")) {
+			break;
+		case CHROME:
 			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 			driver = new ChromeDriver();
-		} else if(browserName.equalsIgnoreCase("edge")) {
+			break;
+		case EDGE:
 			System.setProperty("webdriver.edge.driver", projectPath + "\\browserDrivers\\msedgedriver.exe");
 			driver = new EdgeDriver();
-		} else {
+			break;
+
+		default:
 			throw new RuntimeException("Browser nam is not correct!");
 		}
+		
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		return driver;
