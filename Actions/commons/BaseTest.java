@@ -5,8 +5,12 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	
@@ -17,18 +21,30 @@ public class BaseTest {
 		
 		switch (browser) {
 		case FIREFOX:
-			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 			break;
 		case CHROME:
-			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			break;
 		case EDGE:
-			System.setProperty("webdriver.edge.driver", projectPath + "\\browserDrivers\\msedgedriver.exe");
+			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 			break;
-
+		
+		case COCCOC:
+			WebDriverManager.chromedriver().driverVersion("91.0.4472.101").setup();
+			ChromeOptions options = new ChromeOptions();
+			options.setBinary("C:\\Program Files (x86)\\CocCoc\\Browser\\Application\\browser.exe");
+			driver = new ChromeDriver(options);
+			break;
+			
+		case OPERA:
+			WebDriverManager.operadriver().setup();
+			driver = new OperaDriver();
+			break;
+			
 		default:
 			throw new RuntimeException("Browser nam is not correct!");
 		}

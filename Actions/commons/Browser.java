@@ -1,5 +1,5 @@
 package commons;
 
 public enum Browser {
-	FIREFOX, CHROME, EDGE;
+	FIREFOX, CHROME, EDGE, COCCOC, OPERA;
 }
