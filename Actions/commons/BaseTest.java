@@ -15,7 +15,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseTest {
 	
 	private WebDriver driver;
-	private String projectPath = System.getProperty("user.dir");
 	protected WebDriver getBrowserDriver(String browserName, String url) {
 		Browser browser = Browser.valueOf(browserName.toUpperCase());
 		
