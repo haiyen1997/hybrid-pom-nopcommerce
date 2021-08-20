@@ -7,3 +7,6 @@ encoding//Testcases/com/nopcommerce/user/Level_02_Register_Login_BasePage_Part_I
 encoding//Testcases/com/nopcommerce/user/Level_03_Register_Login_Page_Object_Pattern.java=UTF-8
 encoding//Testcases/com/nopcommerce/user/Level_04_Register_Login_Multiple_Browser.java=UTF-8
 encoding//Testcases/com/nopcommerce/user/Level_05_Register_Login_Page_Factory.java=UTF-8
+encoding//Testcases/com/nopcommerce/user/Level_06_Register_Login_Page_Generator_01_Init_Test_Class.java=UTF-8
+encoding//Testcases/com/nopcommerce/user/Level_06_Register_Login_Page_Generator_02_Init_Page_Object_Class.java=UTF-8
+encoding//Testcases/com/nopcommerce/user/Level_06_Register_Login_Page_Generator_03_Init_Page_Generator_Class.java=UTF-8

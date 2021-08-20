@@ -17,9 +17,10 @@ public class LoginPageObject extends BasePage{
 		sendkeyToElement(driver, LoginPageUI.EMAIL_TEXTBOX, emailAddress);
 	}
 
-	public void clickToLoginButton() {
+	public HomePageObject clickToLoginButton() {
 		waitForElementClickable(driver, LoginPageUI.LOGIN_BUTTON);
 		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
+		return PageGenerator.getHomePage(driver);
 	}
 
 	public void enterToPasswordTextbox(String password) {
