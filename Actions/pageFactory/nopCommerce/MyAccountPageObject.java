@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import pageUIs.nopCommerce.MyAccountPageUI;
+import pageUIs.nopCommerce.CustomerInfoPageUI;
 
 public class MyAccountPageObject extends BasePageFactory{
 

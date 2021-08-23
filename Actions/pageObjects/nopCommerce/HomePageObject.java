@@ -25,10 +25,10 @@ public class HomePageObject extends BasePage{
 		return  PageGenerator.getLoginPage(driver);
 	}
 
-	public MyAccountPageObject clickToMyAccountLink() {
+	public CustomerInfoPageObject clickToMyAccountLink() {
 		waitForElementClickable(driver, HomePageUI.MY_ACCOUNT_LINK);
 		clickToElement(driver, HomePageUI.MY_ACCOUNT_LINK);
-		return PageGenerator.getMyAccountPage(driver);
+		return PageGenerator.getCustomerInfoPage(driver);
 	}
 
 }

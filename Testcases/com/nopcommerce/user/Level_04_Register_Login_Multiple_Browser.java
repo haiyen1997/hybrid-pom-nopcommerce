@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 import commons.BaseTest;
 import pageObjects.nopCommerce.HomePageObject;
 import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.MyAccountPageObject;
+import pageObjects.nopCommerce.CustomerInfoPageObject;
 import pageObjects.nopCommerce.RegisterPageObject;
 
 public class Level_04_Register_Login_Multiple_Browser extends BaseTest{
@@ -24,7 +24,7 @@ public class Level_04_Register_Login_Multiple_Browser extends BaseTest{
 	HomePageObject homePage;
 	LoginPageObject loginPage;
 	RegisterPageObject registerPage;
-	MyAccountPageObject myAccountPage;
+	CustomerInfoPageObject myAccountPage;
 	
 	@Parameters({"browser", "url"})
 	@BeforeClass
@@ -80,7 +80,7 @@ public class Level_04_Register_Login_Multiple_Browser extends BaseTest{
 	@Test
 	public void TC_03_Verify_My_Account() {
 		homePage.clickToMyAccountLink();
-		myAccountPage = new MyAccountPageObject(driver);
+		myAccountPage = new CustomerInfoPageObject(driver);
 		Assert.assertTrue(myAccountPage.isGenderMaleRadioSelected());
 		
 		Assert.assertEquals(myAccountPage.getFirstNameTextboxValue(), firstName);

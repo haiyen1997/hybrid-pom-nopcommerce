@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import pageObjects.nopCommerce.HomePageObject;
 import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.MyAccountPageObject;
+import pageObjects.nopCommerce.CustomerInfoPageObject;
 import pageObjects.nopCommerce.RegisterPageObject;
 
 public class Level_03_Register_Login_Page_Object_Pattern {
@@ -21,7 +21,7 @@ public class Level_03_Register_Login_Page_Object_Pattern {
 	HomePageObject homePage;
 	LoginPageObject loginPage;
 	RegisterPageObject registerPage;
-	MyAccountPageObject myAccountPage;
+	CustomerInfoPageObject myAccountPage;
 	
 	
 	@BeforeClass
@@ -81,7 +81,7 @@ public class Level_03_Register_Login_Page_Object_Pattern {
 	@Test
 	public void TC_03_Verify_My_Account() {
 		homePage.clickToMyAccountLink();
-		myAccountPage = new MyAccountPageObject(driver);
+		myAccountPage = new CustomerInfoPageObject(driver);
 		Assert.assertTrue(myAccountPage.isGenderMaleRadioSelected());
 		
 		Assert.assertEquals(myAccountPage.getFirstNameTextboxValue(), firstName);

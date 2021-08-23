@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 import commons.BaseTest;
 import pageObjects.nopCommerce.HomePageObject;
 import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.MyAccountPageObject;
+import pageObjects.nopCommerce.CustomerInfoPageObject;
 import pageObjects.nopCommerce.PageGenerator;
 import pageObjects.nopCommerce.RegisterPageObject;
 
@@ -25,7 +25,7 @@ public class Level_06_Register_Login_Page_Generator_03_Init_Page_Generator_Class
 	HomePageObject homePage;
 	LoginPageObject loginPage;
 	RegisterPageObject registerPage;
-	MyAccountPageObject myAccountPage;
+	CustomerInfoPageObject myAccountPage;
 	
 	@Parameters({"browser", "url"})
 	@BeforeClass
