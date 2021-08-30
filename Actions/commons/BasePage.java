@@ -248,11 +248,11 @@ public class BasePage {
 	}
 
 	public boolean isElementDisplayed(WebDriver driver, String locator) {
-		return waitForElementVisible(driver, locator).isDisplayed();
+		return getWebElement(driver, locator).isDisplayed();
 	}
 	
 	public boolean isElementDisplayed(WebDriver driver, String locator, String... values) {
-		return waitForElementVisible(driver, castRestParameter(locator, values)).isDisplayed();
+		return getWebElement(driver, castRestParameter(locator, values)).isDisplayed();
 	}
 
 	public boolean isElementSelected(WebDriver driver, String locator) {
@@ -260,7 +260,7 @@ public class BasePage {
 	}
 
 	public boolean isElementEnabled(WebDriver driver, String locator) {
-		return waitForElementVisible(driver, locator).isEnabled();
+		return getWebElement(driver, locator).isEnabled();
 	}
 
 	public void switchToFrame(WebDriver driver, String locator) {
@@ -294,6 +294,11 @@ public class BasePage {
 	public void sendkeyBoardToElement(WebDriver driver, String locator, Keys key) {
 		action = new Actions(driver);
 		action.sendKeys(getWebElement(driver, locator), key).perform();
+	}
+	
+	public void sendkeyBoardToElement(WebDriver driver, String locator, Keys key, String... values) {
+		action = new Actions(driver);
+		action.sendKeys(getWebElement(driver, castRestParameter(locator, values)), key).perform();
 	}
 
 	public String convertRgbaToHexa(String rgbaValue) {
