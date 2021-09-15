@@ -1,5 +1,6 @@
 package commons;
 
+import java.io.File;
 import java.util.List;
 import java.util.Set;
 
@@ -305,8 +306,31 @@ public class BasePage {
 		return Color.fromString(rgbaValue).asHex();
 	}
 
-	public void uploadToElement(WebDriver driver, String locator, String filePath) {
-		getWebElement(driver, locator).sendKeys(filePath);
+	public void uploadOneFile(WebDriver driver, String locator, String fileName) {
+		getWebElement(driver, locator).sendKeys(fileName);
+	}
+	
+	public void uploadMultipleFiles(WebDriver driver, String locator, String... fileNames ) {
+		String osName = System.getProperty("os.name");
+		String projectLocation = System.getProperty("user.dir");
+		String filePath = ""; 
+		String fullFileName = "";
+		
+		//1
+		if(osName.contains("Windows")) {
+			filePath = projectLocation + "\\uploadFiles\\";
+		}else {
+			filePath = projectLocation + "/uploadFiles/";
+		}
+		
+		//2
+		//filePath = projectLocation + File.separator +  "uploadFiles" + File.separator;
+		
+		for(String file : fileNames) {
+			fullFileName = fullFileName + filePath + file + "\n";
+		}
+		fullFileName = fullFileName.trim();
+		getWebElement(driver, locator).sendKeys(fullFileName);
 	}
 
 	public Object executeForBrowser(WebDriver driver, String javaScript) {
