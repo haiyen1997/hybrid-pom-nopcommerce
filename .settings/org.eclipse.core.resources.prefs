@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//Actions/commons/BasePage.java=UTF-8
+encoding//Actions/commons/BaseTest.java=UTF-8
 encoding//Interfaces/pageUIs/alada/HomePageUI.java=UTF-8
 encoding//Interfaces/pageUIs/alada/LoginPageUI.java=UTF-8
 encoding//Testcases/com/alada/login/Level_03_Login_Page_Pattern.java=UTF-8
