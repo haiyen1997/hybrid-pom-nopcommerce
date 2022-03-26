@@ -13,26 +13,26 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.nopCommerce.HomePageObject;
-import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.CustomerInfoPageObject;
-import pageObjects.nopCommerce.PageGenerator;
-import pageObjects.nopCommerce.RegisterPageObject;
+import commons.PageGenerator;
+import pageObjects.nopCommerce.user.UserCustomerInfoPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 public class Level_06_Register_Login_Page_Generator_03_Init_Page_Generator_Class extends BaseTest{
 	WebDriver driver;
 	String firstName, lastName, day, month, year, emailAddress, companyName, password;
-	HomePageObject homePage;
-	LoginPageObject loginPage;
-	RegisterPageObject registerPage;
-	CustomerInfoPageObject myAccountPage;
+	UserHomePageObject homePage;
+	UserLoginPageObject loginPage;
+	UserRegisterPageObject registerPage;
+	UserCustomerInfoPageObject myAccountPage;
 	
 	@Parameters({"browser", "url"})
 	@BeforeClass
 	public void beforeClass(String browserName, String url) {		
 		driver = getBrowserDriver(browserName, url);
 		
-		homePage = PageGenerator.getHomePage(driver);
+		homePage = PageGenerator.getUserHomePage(driver);
 		
 		firstName = "Automation";
 		lastName= "FC";

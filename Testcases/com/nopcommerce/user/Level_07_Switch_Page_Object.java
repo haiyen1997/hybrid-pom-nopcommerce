@@ -13,40 +13,40 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.nopCommerce.HomePageObject;
-import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.MyProductReviewsPageObject;
-import pageObjects.nopCommerce.OrderPageObject;
-import pageObjects.nopCommerce.AddressesPageObject;
-import pageObjects.nopCommerce.BackInStockSubscriptionsPageObject;
-import pageObjects.nopCommerce.ChangePasswordPageObject;
-import pageObjects.nopCommerce.CustomerInfoPageObject;
-import pageObjects.nopCommerce.DownloadableProductsPageObject;
-import pageObjects.nopCommerce.PageGenerator;
-import pageObjects.nopCommerce.RegisterPageObject;
-import pageObjects.nopCommerce.RewardPointsPageObject;
+import commons.PageGenerator;
+import pageObjects.nopCommerce.user.UserAddressesPageObject;
+import pageObjects.nopCommerce.user.UserBackInStockSubscriptionsPageObject;
+import pageObjects.nopCommerce.user.UserChangePasswordPageObject;
+import pageObjects.nopCommerce.user.UserCustomerInfoPageObject;
+import pageObjects.nopCommerce.user.UserDownloadableProductsPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserMyProductReviewsPageObject;
+import pageObjects.nopCommerce.user.UserOrderPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
+import pageObjects.nopCommerce.user.UserRewardPointsPageObject;
 
 public class Level_07_Switch_Page_Object extends BaseTest{
 	WebDriver driver;
 	String firstName, lastName, day, month, year, emailAddress, companyName, password;
-	HomePageObject homePage;
-	LoginPageObject loginPage;
-	RegisterPageObject registerPage;
-	CustomerInfoPageObject customerInfoPage;
-	AddressesPageObject addressesPage;
-	OrderPageObject orderPage;
-	RewardPointsPageObject rewardPointsPage;
-	BackInStockSubscriptionsPageObject backInStockPage;
-	DownloadableProductsPageObject downloadProductPage;
-	ChangePasswordPageObject changePasswordPage;
-	MyProductReviewsPageObject myProductReviewsPage;
+	UserHomePageObject homePage;
+	UserLoginPageObject loginPage;
+	UserRegisterPageObject registerPage;
+	UserCustomerInfoPageObject customerInfoPage;
+	UserAddressesPageObject addressesPage;
+	UserOrderPageObject orderPage;
+	UserRewardPointsPageObject rewardPointsPage;
+	UserBackInStockSubscriptionsPageObject backInStockPage;
+	UserDownloadableProductsPageObject downloadProductPage;
+	UserChangePasswordPageObject changePasswordPage;
+	UserMyProductReviewsPageObject myProductReviewsPage;
 	
 	@Parameters({"browser", "url"})
 	@BeforeClass
 	public void beforeClass(String browserName, String url) {		
 		driver = getBrowserDriver(browserName, url);
 		
-		homePage = PageGenerator.getHomePage(driver);
+		homePage = PageGenerator.getUserHomePage(driver);
 		
 		firstName = "Automation";
 		lastName= "FC";

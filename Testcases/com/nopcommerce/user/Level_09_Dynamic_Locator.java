@@ -13,40 +13,40 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.nopCommerce.HomePageObject;
-import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.MyProductReviewsPageObject;
-import pageObjects.nopCommerce.OrderPageObject;
-import pageObjects.nopCommerce.AddressesPageObject;
-import pageObjects.nopCommerce.BackInStockSubscriptionsPageObject;
-import pageObjects.nopCommerce.ChangePasswordPageObject;
-import pageObjects.nopCommerce.CustomerInfoPageObject;
-import pageObjects.nopCommerce.DownloadableProductsPageObject;
-import pageObjects.nopCommerce.PageGenerator;
-import pageObjects.nopCommerce.RegisterPageObject;
-import pageObjects.nopCommerce.RewardPointsPageObject;
+import commons.PageGenerator;
+import pageObjects.nopCommerce.user.UserAddressesPageObject;
+import pageObjects.nopCommerce.user.UserBackInStockSubscriptionsPageObject;
+import pageObjects.nopCommerce.user.UserChangePasswordPageObject;
+import pageObjects.nopCommerce.user.UserCustomerInfoPageObject;
+import pageObjects.nopCommerce.user.UserDownloadableProductsPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserMyProductReviewsPageObject;
+import pageObjects.nopCommerce.user.UserOrderPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
+import pageObjects.nopCommerce.user.UserRewardPointsPageObject;
 
-public class Level_08_Dynamic_Locator extends BaseTest{
+public class Level_09_Dynamic_Locator extends BaseTest{
 	WebDriver driver;
 	String firstName, lastName, day, month, year, emailAddress, companyName, password;
-	HomePageObject homePage;
-	LoginPageObject loginPage;
-	RegisterPageObject registerPage;
-	CustomerInfoPageObject customerInfoPage;
-	AddressesPageObject addressesPage;
-	OrderPageObject orderPage;
-	RewardPointsPageObject rewardPointsPage;
-	BackInStockSubscriptionsPageObject backInStockPage;
-	DownloadableProductsPageObject downloadProductPage;
-	ChangePasswordPageObject changePasswordPage;
-	MyProductReviewsPageObject myProductReviewsPage;
+	UserHomePageObject homePage;
+	UserLoginPageObject loginPage;
+	UserRegisterPageObject registerPage;
+	UserCustomerInfoPageObject customerInfoPage;
+	UserAddressesPageObject addressesPage;
+	UserOrderPageObject orderPage;
+	UserRewardPointsPageObject rewardPointsPage;
+	UserBackInStockSubscriptionsPageObject backInStockPage;
+	UserDownloadableProductsPageObject downloadProductPage;
+	UserChangePasswordPageObject changePasswordPage;
+	UserMyProductReviewsPageObject myProductReviewsPage;
 	
 	@Parameters({"browser", "url"})
 	@BeforeClass
 	public void beforeClass(String browserName, String url) {		
 		driver = getBrowserDriver(browserName, url);
 		
-		homePage = PageGenerator.getHomePage(driver);
+		homePage = PageGenerator.getUserHomePage(driver);
 		
 		firstName = "Automation";
 		lastName= "FC";
@@ -104,22 +104,22 @@ public class Level_08_Dynamic_Locator extends BaseTest{
 	@Test
 	public void TC_04_Switch_Page() {
 		//Customer Info chuyển qua page Orders
-		orderPage = (OrderPageObject) customerInfoPage.openSiderBarPageName(driver, "Orders");
+		orderPage = (UserOrderPageObject) customerInfoPage.openSiderBarPageName(driver, "Orders");
 		
 		//Orders --> Reward Points
-		rewardPointsPage = (RewardPointsPageObject) orderPage.openSiderBarPageName(driver, "Reward points");
+		rewardPointsPage = (UserRewardPointsPageObject) orderPage.openSiderBarPageName(driver, "Reward points");
 		
 		//Reward Points --> Addresses
-		addressesPage = (AddressesPageObject) rewardPointsPage.openSiderBarPageName(driver, "Addresses");
+		addressesPage = (UserAddressesPageObject) rewardPointsPage.openSiderBarPageName(driver, "Addresses");
 		
 		//Addresses -->Customer Info
-		customerInfoPage = (CustomerInfoPageObject) addressesPage.openSiderBarPageName(driver, "Customer info");
+		customerInfoPage = (UserCustomerInfoPageObject) addressesPage.openSiderBarPageName(driver, "Customer info");
 		
 		//Customer Info --> Reward Points
-		rewardPointsPage = (RewardPointsPageObject) customerInfoPage.openSiderBarPageName(driver, "Reward points");
+		rewardPointsPage = (UserRewardPointsPageObject) customerInfoPage.openSiderBarPageName(driver, "Reward points");
 		
 		//Reward Points --> Change password
-		changePasswordPage = (ChangePasswordPageObject) rewardPointsPage.openSiderBarPageName(driver, "Change password");
+		changePasswordPage = (UserChangePasswordPageObject) rewardPointsPage.openSiderBarPageName(driver, "Change password");
 		
 	}
 	
@@ -127,15 +127,15 @@ public class Level_08_Dynamic_Locator extends BaseTest{
 	public void TC_05_Switch_Page() {		
 		//Change password --> Back in stock subscriptions
 		changePasswordPage.openSiderBarPageByPageName(driver, "Back in stock subscriptions");
-		backInStockPage = PageGenerator.getBackInStockSubscriptionsPage(driver);
+		backInStockPage = PageGenerator.getUserBackInStockSubscriptionsPage(driver);
 		
 		//Back in stock subscription --> my product reviews
 		backInStockPage.openSiderBarPageName(driver, "My product reviews");
-		myProductReviewsPage = PageGenerator.getMyProductReviewsPage(driver);
+		myProductReviewsPage = PageGenerator.getUserMyProductReviewsPage(driver);
 				
 		//my product reviews --> downloadable products
 		myProductReviewsPage.openSiderBarPageName(driver, "Downloadable products");
-		downloadProductPage = PageGenerator.getDownloadableProductsPage(driver);
+		downloadProductPage = PageGenerator.getUserDownloadableProductsPage(driver);
 	}
 	
 	@AfterClass

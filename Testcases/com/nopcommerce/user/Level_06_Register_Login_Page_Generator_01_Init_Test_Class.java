@@ -13,18 +13,18 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.nopCommerce.HomePageObject;
-import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.CustomerInfoPageObject;
-import pageObjects.nopCommerce.RegisterPageObject;
+import pageObjects.nopCommerce.user.UserCustomerInfoPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 public class Level_06_Register_Login_Page_Generator_01_Init_Test_Class extends BaseTest{
 	WebDriver driver;
 	String firstName, lastName, day, month, year, emailAddress, companyName, password;
-	HomePageObject homePage;
-	LoginPageObject loginPage;
-	RegisterPageObject registerPage;
-	CustomerInfoPageObject myAccountPage;
+	UserHomePageObject homePage;
+	UserLoginPageObject loginPage;
+	UserRegisterPageObject registerPage;
+	UserCustomerInfoPageObject myAccountPage;
 	
 	@Parameters({"browser", "url"})
 	@BeforeClass
@@ -34,7 +34,7 @@ public class Level_06_Register_Login_Page_Generator_01_Init_Test_Class extends B
 		//change this page to another page --> new page
 		//k quan tam viec che giau khoi tao doi tuong
 		//khoi tao page nhieu lan
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 		
 		firstName = "Automation";
 		lastName= "FC";
@@ -49,7 +49,7 @@ public class Level_06_Register_Login_Page_Generator_01_Init_Test_Class extends B
 	@Test
 	public void TC_01_Register() {
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 		
 		registerPage.clickToGenderMaleRadio();
 		registerPage.enterToFirstNameTextbox(firstName);
@@ -65,26 +65,26 @@ public class Level_06_Register_Login_Page_Generator_01_Init_Test_Class extends B
 		Assert.assertTrue(registerPage.isRegisterSuccessMessageDisplay());
 		registerPage.clickToLogoutLink();
 		
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 	}
 
 	@Test
 	public void TC_02_Login() {
 		homePage.clickToLoginLink();
 		
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 		
 		loginPage.enterToEmailTextbox(emailAddress);
 		loginPage.enterToPasswordTextbox(password);
 		loginPage.clickToLoginButton();
 		
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 	}
 
 	@Test
 	public void TC_03_Verify_My_Account() {
 		homePage.clickToMyAccountLink();
-		myAccountPage = new CustomerInfoPageObject(driver);
+		myAccountPage = new UserCustomerInfoPageObject(driver);
 		Assert.assertTrue(myAccountPage.isGenderMaleRadioSelected());
 		
 		Assert.assertEquals(myAccountPage.getFirstNameTextboxValue(), firstName);
